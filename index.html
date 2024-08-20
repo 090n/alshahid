@@ -1,0 +1,111 @@
+
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مشغل القرآن الكريم</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: Cairo, sans-serif;
+            text-align: center;
+            background-color: #2F4F4F;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            margin-top: 50px;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        img {
+            width: 100%;
+            border-radius: 10px;
+            height: auto;
+        }
+        audio {
+            display: none;
+        }
+        .controls {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        .button {
+            margin: 0 10px;
+            padding: 10px;
+            border: none;
+            background-color: #2F4F4F;
+            color: white;
+            cursor: pointer;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s;
+        }
+        .button:hover {
+            background-color: #2F4F2b;
+        }
+        .qari-name {
+            font-size: 24px; /* زيادة حجم الخط */
+            color: #2F4F4F;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+        .qari-title {
+            font-size: 18px; /* حجم خط أقل للختمة */
+            color: #2F4F4F;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <img src="mo.png" alt="صورة القرآن">
+    <div class="qari-name">عامر الكاظمي</div>
+    <div class="qari-title">AL-Faatihah سورة الفاتحة </div> <!-- إضافة عنوان الختمة -->
+    <audio id="quranAudio" src="AL-Faatihah سورة الفاتحة.m4a" loop></audio>
+    <div class="controls">
+        <button class="button" id="playButton"><i class="fas fa-play"></i></button>
+        <button class="button" id="pauseButton"><i class="fas fa-pause"></i></button>
+        <button class="button" id="repeatButton"><i class="fas fa-redo"></i></button>
+    </div>
+</div>
+
+
+
+
+<script>
+    const audio = document.getElementById('quranAudio');
+    const playButton = document.getElementById('playButton');
+    const pauseButton = document.getElementById('pauseButton');
+    const repeatButton = document.getElementById('repeatButton');
+
+    playButton.addEventListener('click', () => {
+        audio.play();
+    });
+
+    pauseButton.addEventListener('click', () => {
+        audio.pause();
+    });
+
+    repeatButton.addEventListener('click', () => {
+        audio.currentTime = 0;
+        audio.play();
+    });
+</script>
+
+</body>
+</html>
